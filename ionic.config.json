@@ -1,0 +1,7 @@
+{
+  "name": "ChilianAli-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
