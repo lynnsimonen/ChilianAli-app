@@ -1,21 +1,42 @@
 <template>
   <ion-page>
+    <ion-header>
+      <ion-label1>
+        <strong>Ali's Chilean Restaurant </strong>
+      </ion-label1>
+      <div>
+        <p>
+          <ion-icon :icon="call"> </ion-icon>
+          262-334-5476
+        </p>
+        <p>
+          <ion-icon :icon="location"> </ion-icon>
+          17700 W Capitol Dr., Brookfield, WI 53045
+        </p>
+      </div>
+    </ion-header>
+
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="triangle" />
-          <ion-label>Tab 1</ion-label>
+          <ion-icon :icon="home" />
+          <ion-label>home</ion-label>
         </ion-tab-button>
-          
+
         <ion-tab-button tab="tab2" href="/tabs/tab2">
-          <ion-icon :icon="ellipse" />
-          <ion-label>Tab 2</ion-label>
+          <ion-icon :icon="gridOutline" />
+          <ion-label>order menu</ion-label>
         </ion-tab-button>
-        
+
         <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon :icon="square" />
-          <ion-label>Tab 3</ion-label>
+          <ion-icon :icon="videocamOutline" />
+          <ion-label>events & more</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab4" href="/tabs/tab4">
+          <ion-icon :icon="personCircleOutline" />
+          <ion-label>your account</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -23,19 +44,58 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { defineComponent } from "vue";
+import {
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonLabel,
+  IonIcon,
+  IonPage,
+  IonRouterOutlet,
+} from "@ionic/vue";
+import {
+  gridOutline,
+  home,
+  videocamOutline,
+  personCircleOutline,
+  call,
+  location,
+} from "ionicons/icons";
 
 export default defineComponent({
-  name: 'TabsPage',
-  components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, IonRouterOutlet },
+  name: "TabsPage",
+  components: {
+    IonLabel,
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonIcon,
+    IonPage,
+    IonRouterOutlet,
+  },
   setup() {
     return {
-      ellipse, 
-      square, 
-      triangle,
-    }
-  }
+      gridOutline,
+      home,
+      videocamOutline,
+      personCircleOutline,
+      call,
+      location,
+    };
+  },
 });
 </script>
+
+<style>
+ion-header {
+  padding-top: 10px;
+  padding-left: 15px;
+  background-color: rgba(48, 56, 56, 0.052);
+  background-clip: padding-box;
+}
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+</style>
