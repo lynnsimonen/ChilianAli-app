@@ -4,13 +4,23 @@
     <div class="image" alt="Ali cooking empanadas with friend.">
       <div class="story">
         <h1>
-          <strong>{{name}}</strong>
+          <strong>{{ name }}</strong>
         </h1>
         <p2>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore magnam
           odio, quo obcaecati consequatur molestiae facilis ipsum pariatur
-          quaerat! 
+          quaerat!
         </p2>
+        <ion-alert
+          :is-open="isOpenRef"
+          header="Welcome!"
+          sub-header="Dear and Valued Customer,"
+          message="We are open for Dine-in, look forward to seeing you soon!"
+          :buttons="[{
+            text:'OK'
+            }]"
+          @didDismiss="setOpen(false)">
+        </ion-alert>
       </div>
     </div>
 
@@ -28,31 +38,43 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { IonAlert } from '@ionic/vue';
+import { colorFill } from "ionicons/icons";
 
 export default defineComponent({
   name: "ExploreContainer",
   props: {
     name: String,
   },
+  components: { IonAlert},
+  setup() {
+    const isOpenRef = ref(true);
+    const setOpen = (state: boolean) => isOpenRef.value = state;
+    
+    return { isOpenRef, setOpen }
+  }
 });
+
+
 </script>
 
 <style scoped>
-#top{
+#top {
   height: 125px;
-  background-color:rgba(255, 166, 0, 0.5);
+  background-color: rgba(255, 166, 0, 0.5);
 }
 #container {
-  
-  min-height:100%;
+  min-height: 100%;
   width: 100%;
   position: absolute;
   font-family: "Segoe Script";
   background-color: rgba(255, 166, 0, 0.5);
 }
 .image {
-  vertical-align:;
+  border: 5px;
+  border-style: solid;
+  border-color: black;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -60,14 +82,11 @@ export default defineComponent({
   height: 50vh;
   background-position: center;
   background-size: cover;
-  background-image: linear-gradient(
-      180deg,
-      transparent,
-      rgba(22, 22, 2, 0.5) ),
+  background-image: linear-gradient(180deg, transparent, rgba(22, 22, 2, 0.5)),
     url(@/assets/AlisKitchen.jpg);
 }
 .story {
-  top: 30%;
+  top: 28%;
   position: absolute;
   font-style: italic;
 }

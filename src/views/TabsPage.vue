@@ -18,7 +18,7 @@
 
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar slot="bottom" color="black">
         <ion-tab-button tab="tab1" href="/alis/home">
           <ion-icon :icon="home" />
           <ion-label>home</ion-label>
@@ -91,11 +91,11 @@ export default defineComponent({
 ion-header {
   padding-top: 10px;
   padding-left: 15px;
-  background-color: #e6e6e6;
+  background-color: rgba(238, 81, 29, 0.25);
 }
 p {
   margin-top: 5px;
   margin-bottom: 5px;
-  color: darkgrey;
+  color: rgb(93, 88, 88, 1);
 }
 </style>

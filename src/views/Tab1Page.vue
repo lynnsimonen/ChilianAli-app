@@ -32,17 +32,5 @@ export default defineComponent({
     IonContent,
     IonPage,
   },
-
-  
 });
 </script>
-
-<style>
-ion-header {
-  padding-top: 10px;
-  padding-left: 15px;
-}
-#p {
-  line-height: normal;
-}
-</style>
